@@ -1,0 +1,15 @@
+---
+layout: post
+title: Dealing with composite primary keys and EntityFramework scaffolded controllers
+date: '2019-03-31T22:26:00.001-07:00'
+author: Nick Vella
+tags:
+- asp.net
+- tech
+- programming
+modified_time: '2019-05-16T18:27:30.151-07:00'
+blogger_id: tag:blogger.com,1999:blog-6558767254773293691.post-6926441829248325508
+blogger_orig_url: https://blog.nxk.io/2019/03/dealing-with-composite-primary-keys-and.html
+---
+
+A recent uni assignment has required me to implement an ASP.NET Core REST API using EntityFrameworkCore on a pre-existing database. Whilst EF Core tends to generate controllers for models with single primary keys just fine, I’ve found that it has no support for composite primary keys. This requires you to alter your controller classes to add the support manually, which in my case involved the following;<br><ul><li>Alter the paths of the individual Get, Put, and Delete endpoints to contain two (or more, depending on how many keys are in your composite) parameters, and then alter the method parameters to match. This requires careful consideration as there are many different ways you can structure the parameters in your route.</li><li>Alter every usage of <span style="font-family: courier new;">_context.<em>nameOfModelHere</em>.FindAsync</span> to contain all components of your primary key. Look at the model’s Entity definition in your database context class, specifically the usage of <span style="font-family: courier new;">entity.HasKey</span>, to determine the order in which to list the components in your key to <span style="font-family: courier new;">FindAsync</span>.</li><li>Alter the <span style="font-family: courier new;"><em>nameOfModelHere</em>Exists </span>method to take the correct amount of parameters for your key. Adjust the body of the method accordingly to check all parts of the key; I just added &amp;&amp; at the end of the existing equality expression, and added more equality expressions.</li><ul><li>Alter all usages of <span style="font-family: courier new;"><em>nameOfModelHere</em>Exists </span><span>appropriately. </span></li></ul><li>In the Put method, alter the second if statement to check all the components of your primary key, rather than just <span style="font-family: courier new;">id</span>.</li><li>In the Post method, adjust the <span style="font-family: courier new;">CreatedAtAction</span> call in the return statement to contain all the components of your primary key.</li><li>I would also recommend updating all the auto-generated comments that EntityFramework put in to keep things consistent.</li></ul><a name="more"></a> Below is my implementation of these steps made to a controller titled <span style="font-family: courier new;">BookCopies</span>. The components of the primary key are int <span style="font-family: courier new;">CopyCount</span> and string <span style="font-family: courier new;">ISBN</span>.<a name='more'></a><br><br><script src="https://gist.github.com/nvella/c8329ebd9a4ef2b65588d34ea9ae0572.js"></script>

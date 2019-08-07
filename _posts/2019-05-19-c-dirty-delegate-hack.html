@@ -1,0 +1,15 @@
+---
+layout: post
+title: C# Dirty Delegate Hack
+date: '2019-05-19T22:38:00.001-07:00'
+author: Nick Vella
+tags:
+- ".net"
+- tech
+- programming
+modified_time: '2019-05-19T22:40:34.789-07:00'
+blogger_id: tag:blogger.com,1999:blog-6558767254773293691.post-337047256021848035
+blogger_orig_url: https://blog.nxk.io/2019/05/c-dirty-delegate-hack.html
+---
+
+<p>Just a quick one for today. For a uni C# assignment I’ve had to implement a multi-delegate that processes a list of data, with the delegate consisting of three disparate functions which I also had to implement, according to a unit test spec. Data has to flow between each step of the delegate to produce the correct output. Now the usual way to do this would be to use pass-by-reference to alter the original data in-place, however in this circumstance it was not possible as the tests required the signatures of the delegate methods to pass-by-value. After thinking for some time, I came to the following solution. Beware, it’s fairly horrible.</p><p>In the classes containing the delegate methods, I define a helper function;</p><p><font face="Courier New" size="2">public static List&lt;List&lt;string&gt;&gt; S(List&lt;List&lt;string&gt;&gt; oldData, List&lt;List&lt;string&gt;&gt;newData) {<br>&nbsp;&nbsp;&nbsp;&nbsp; for (var i = 0; i &lt; oldData.Count; i++) oldData[i] = newData[i];<br>&nbsp;&nbsp;&nbsp;&nbsp; return oldData; <br>}</font><br></p><p>Then in the delegate methods, I wrap the results expression in this helper function, passing the original list as the first parameter</p><p><font face="Courier New" size="2">public List&lt;List&lt;string&gt;&gt; StripWhiteSpace(List&lt;List&lt;string&gt;&gt; data)<br>&nbsp;&nbsp;&nbsp;&nbsp; =&gt; S(data, data.Select(row =&gt; row.Select(val =&gt; val.Trim()).ToList()).ToList());</font></p><p>This then results in the new data being returned from the method (satisfies the tests) as well as the original data being replaced (allows the data to flow to the next delegate method). How does it work? It comes down to the fact that the data I’m working with here is <em>non-primitive</em>; passing it between methods is implicitly by reference rather than by value. It did take me a while to reach this conclusion, my initial thinking was that I’m working with lists of <u>strings</u>, and strings are primitive and therefor pass-by-value. When I realised I was actually working with <u>Lists</u>, which are non-primitive objects, it occurred to me that I could write a helper method to modify each member of the original List in-place. Because the new data is being placed back into the original List object, the same object of which is referenced later on, the data carries itself forward into those next methods of the delegate.</p>

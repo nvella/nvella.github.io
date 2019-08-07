@@ -1,0 +1,19 @@
+---
+layout: post
+title: Introducing PTData–easily obtain Victorian public transport data in a tabular
+  format
+date: '2019-04-05T04:05:00.001-07:00'
+author: Nick Vella
+tags:
+- tech
+- ptdata
+- ruby
+- programming
+- transport
+- projects
+modified_time: '2019-04-05T06:39:08.882-07:00'
+blogger_id: tag:blogger.com,1999:blog-6558767254773293691.post-8773178891662383170
+blogger_orig_url: https://blog.nxk.io/2019/04/introducing-ptdataeasily-obtain.html
+---
+
+<p>Today marks the public release of my newest project, <a href="https://ptdata.net" target="_blank">PTData</a>. PTData makes obtaining data from the PTV API easy by displaying it in a tabular format, linking the data together via clickable links, and making all of it available for download as CSV. PTData can currently request lists of routes, lists of stops, lists of departures and a service’s stopping pattern, with more features planned for the future.</p><p>My initial intention for this project was to make it easier to import bus timetable data into Excel. Copy/paste just wasn’t formatting into the cells correctly for me, so that led to me entering in the times manually. This quickly became a tedious and frustrating process, which was what initially spurred me to start the project. Almost exactly two weeks later, and here we are. </p><p>The site sports quite a simple design as it currently stands, and that for the most part has been intentional. In ways I’m nostalgic for the bare-bones web design trends of the early 2000s, but at the same time it serves the practical purpose of being information-dense. In regards to the technology powering the site, I’ve kept it quite simple as to help with getting the site off the ground as quick as possible. The site itself is written in Ruby, utilising the Sinatra web framework and Dylan Shaw’s <a href="https://github.com/dshaw1/ruby-ptv-api" target="_blank">ruby-ptv-api</a> gem. As for why I chose Ruby and Sinatra, it’s pretty much what I’m most comfortable with for developing web applications of this nature. I can see myself changing languages and frameworks going forward should the need arise.</p><p>There is currently no dedicated database storing the information from PTV permanently, although I do have the rendered pages being cached by nginx and then later Cloudflare to ease load on the API. I do plan to integrate a database eventually, and this would open a whole world of opportunities in regards to working with the data. On a surface level, it would allow for the rendering of a traditional ‘timetable’ view, but going further it would make possible some interesting analysis. Average delay per route, how time of day affects the network, etc.</p><p>The site’s code is open-source over at <a href="https://github.com/nvella/ptdata" target="_blank">https://github.com/nvella/ptdata</a>, and I do welcome any issue reports, ideas, or pull requests. The codebase is very rudimentary as it currently stands, however I do quickly see it becoming a rather complex project with numerous backend services performing different tasks.</p><p>By now you’re probably wondering what I’m going to use it for. For a long time I’ve wanted to perform an analysis on the bus timetables and connections in the Latrobe Valley. From experience I’ve found the inter-modal and inter-route connections to be quite poor, but with this tool I can now state with exact numbers just how bad it actually is. Stay tuned for a future blog post…</p>
