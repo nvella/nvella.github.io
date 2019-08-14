@@ -1,0 +1,97 @@
+body {
+    background: #aaa;
+    font-family: monospace;
+}
+
+.site-title {
+    font-size: 16pt;
+    font-weight: bold;
+    padding-bottom: 20px;
+    display: inline-block;
+    text-transform: lowercase;
+}
+
+.site-description {
+    margin-left: 10px;
+    font-style: italic;
+}
+
+.dp {
+    width: 75%;
+    display: inline-block;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+}
+
+.left-col {
+    float: left;
+    width: 200px;
+    margin-right: 20px;
+}   
+
+.main-col {
+    width: 580px;
+    box-sizing: border-box;
+    float: right;
+}
+
+.col-box {
+    width: 100%;
+
+    background-color: white;
+    -webkit-box-shadow: 10px 10px 0px 0px #000;
+    -moz-box-shadow: 10px 10px 0px 0px #000;
+    box-shadow: 10px 10px 0px 0px #000;
+    box-sizing: border-box;
+    display: inline-block;
+
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.nav {
+    margin-bottom: 20px;
+}
+
+.nav > ul {
+    box-sizing: border-box;
+    display: inline;
+    padding: 0;
+}
+
+.nav > ul > li {
+    display: inline;
+    text-transform: lowercase;
+}
+
+.nav > ul > li:not(:last-child):after {
+    content: " | ";    
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    text-transform: lowercase;
+}
+
+.post-list {
+    display: block;
+    padding: 0;
+}
+
+.post-list > li {
+    display: block;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.post-tags {
+    font-style: italic;
+}
+
+.post-archive {
+    margin-top: 10px;
+}
