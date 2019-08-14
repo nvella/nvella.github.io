@@ -1,4 +1,8 @@
 <nav class="col-box nav">
+    <div class="mobile-only">
+        <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+        <span class="site-description">{{ site.description | escape }}</span>
+    </div>
     <ul>
         <li><a class="page-link" href="{{ "/" | relative_url }}">Blog</a></li>
         {%- assign default_paths = site.pages | map: "path" -%}

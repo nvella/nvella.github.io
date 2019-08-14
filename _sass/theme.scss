@@ -4,6 +4,16 @@ body {
     font-size: 13px;
 }
 
+img { 
+    max-width:100%;
+    width: auto;
+    height: auto;
+}
+
+.mobile-only {
+    display: none !important;
+}
+
 .site-title {
     font-size: 16pt;
     font-weight: bold;
@@ -96,3 +106,5 @@ h1, h2, h3, h4, h5, h6 {
 .post-archive {
     margin-top: 10px;
 }
+
+@import "mobile";
