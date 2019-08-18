@@ -1,5 +1,9 @@
 body {
-    background: #aaa;
+    background: #ad5389;  /* fallback for old browsers */
+    background: linear-gradient(to bottom, #3c1053, #ad5389); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-attachment: fixed;
+
+
     font-family: 'Consolas', monospace;
     font-size: 13px;
 }
@@ -39,24 +43,24 @@ img {
 }
 
 .left-col {
+    display: inline-block;
     float: left;
     width: 200px;
     margin-right: 20px;
 }   
 
 .main-col {
-    width: 580px;
+    display: inline-block;
+    width: 570px;
     box-sizing: border-box;
-    float: right;
+    margin-right: 10px;
 }
 
 .col-box {
     width: 100%;
 
-    background-color: white;
-    -webkit-box-shadow: 10px 10px 0px 0px #000;
-    -moz-box-shadow: 10px 10px 0px 0px #000;
-    box-shadow: 10px 10px 0px 0px #000;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 10px 10px 0px 0px rgba(10, 10, 10, 0.7);
     box-sizing: border-box;
     display: inline-block;
 
