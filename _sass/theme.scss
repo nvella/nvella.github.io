@@ -59,8 +59,8 @@ img {
 .col-box {
     width: 100%;
 
-    background-color: rgba(255, 255, 255, 0.7);
-    box-shadow: 10px 10px 0px 0px rgba(10, 10, 10, 0.7);
+    background-color: rgba(255, 225, 236, 0.6);
+    box-shadow: 10px 10px 0px 0px rgba(10, 10, 10, 0.6);
     box-sizing: border-box;
     display: inline-block;
 
@@ -109,6 +109,16 @@ h1, h2, h3, h4, h5, h6 {
 
 .post-archive {
     margin-top: 10px;
+}
+
+.buttons > h3 {
+    margin-bottom: 8px;
+}
+
+.buttons > img {
+    float: left;
+    padding: 0;
+    margin: 0;
 }
 
 @import "mobile";
