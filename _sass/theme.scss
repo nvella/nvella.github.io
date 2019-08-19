@@ -1,8 +1,7 @@
 body {
-    background: #ad5389;  /* fallback for old browsers */
-    background: linear-gradient(to bottom, #3c1053, #ad5389); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #DA4453;  /* fallback for old browsers */   
+    background: linear-gradient(to top, #89216B, #DA4453); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-attachment: fixed;
-
 
     font-family: 'Consolas', monospace;
     font-size: 13px;
@@ -115,7 +114,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 8px;
 }
 
-.buttons > img {
+.buttons > img, .buttons > a > img {
     float: left;
     padding: 0;
     margin: 0;
