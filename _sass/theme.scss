@@ -1,6 +1,6 @@
 body {
-    background: #DA4453;  /* fallback for old browsers */   
-    background: linear-gradient(to top, #89216B, #DA4453); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #6A9113;  /* fallback for old browsers */
+    background: linear-gradient(to bottom, #141517, #6A9113); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-attachment: fixed;
 
     font-family: 'Consolas', monospace;
@@ -58,8 +58,10 @@ img {
 .col-box {
     width: 100%;
 
-    background-color: rgba(255, 240, 249, 0.9);
-    box-shadow: 10px 10px 0px 0px rgba(10, 10, 10, 0.6);
+    background: rgba(248, 255, 231, 0.9);
+    background: linear-gradient(to bottom, rgba(248, 255, 231, 0.9), rgba(242, 255, 211, 0.9)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    box-shadow: 10px 10px 0px 0px rgba(32, 32, 32, 0.5);
     box-sizing: border-box;
     display: inline-block;
 
