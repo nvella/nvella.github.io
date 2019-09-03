@@ -1,5 +1,9 @@
+$primary-bg: rgb(0,0,175);
+$secondary-bg: rgb(0,168,175);
+$content-bg: rgb(175, 168, 175);
+
 body {
-    background: grey;
+    background: $primary-bg;
 
     font-family: 'Consolas', monospace;
     font-size: 13px;
@@ -18,7 +22,8 @@ img {
 .site-title {
     font-size: 16pt;
     font-weight: bold;
-    padding-bottom: 20px;
+    margin: 0 !important;
+    margin-bottom: 20px !important;
     display: inline-block;
     text-transform: lowercase;
 }
@@ -56,7 +61,7 @@ img {
 .col-box {
     width: 100%;
 
-    background-color: white;
+    background-color: $content-bg;
     box-shadow: 10px 10px 0px 0px black;
     box-sizing: border-box;
     display: inline-block;
@@ -85,8 +90,10 @@ img {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    margin: 0;
+    margin: 5px 0px 5px 0px;
     text-transform: lowercase;
+    background-color: $secondary-bg;
+    color: $primary-bg;
 }
 
 .post-list {
