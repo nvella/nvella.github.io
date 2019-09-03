@@ -1,6 +1,6 @@
-$primary-bg: rgb(0,0,175);
-$secondary-bg: rgb(0,168,175);
-$content-bg: rgb(175, 168, 175);
+$primary-bg: grey; //rgb(0,0,175);
+$secondary-bg: white; //rgb(0,168,175);
+$content-bg: white; //rgb(175, 168, 175);
 
 body {
     background: $primary-bg;
@@ -93,7 +93,7 @@ h1, h2, h3, h4, h5, h6 {
     margin: 5px 0px 5px 0px;
     text-transform: lowercase;
     background-color: $secondary-bg;
-    color: $primary-bg;
+    color: black; //$primary-bg;
 }
 
 .post-list {
