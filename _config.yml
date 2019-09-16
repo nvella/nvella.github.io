@@ -35,6 +35,7 @@ excerpt_separator: <!--more-->
 header_pages:
   - index.html
   - archive.html
+  - open-live-writer.html
   - about.md
 
 paginate: 5
