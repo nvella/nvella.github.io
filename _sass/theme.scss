@@ -125,4 +125,23 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0;
 }
 
+code {
+    background-color: #dedede;
+    color: black;
+    margin: 1px;
+    padding: 1px;
+
+    border-radius: 3px;
+    white-space: pre-wrap;
+    display: inline-block;
+}
+
+div.highlight {
+    width: 100%;
+}
+
+div.highlight > code {
+    width: 100%;
+}
+
 @import "mobile";
